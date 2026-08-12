@@ -1,1 +1,550 @@
-test2
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Taxi - Premium City Mobility</title>
+    <meta name="description" content="Local Taxi - Premium City Mobility">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <style>
+        .eyebrow {
+            display: inline-block;
+            color: var(--primary-accent);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        /* Custom tweaks for Home 1 */
+        .step-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: var(--primary-accent);
+            transform: translateY(-5px);
+        }
+
+        .step-icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: rgba(231, 183, 90, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--primary-accent);
+            margin: 0 auto 20px auto;
+        }
+
+        .fleet-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+        }
+
+        .fleet-card:hover {
+            border-color: var(--primary-accent);
+            transform: translateY(-5px);
+        }
+
+        .fleet-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .fleet-card:hover .fleet-img {
+            transform: scale(1.05);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--primary-accent);
+            color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .app-section {
+            background: linear-gradient(135deg, rgba(11, 14, 18, 0.9) 0%, rgba(11, 14, 18, 0.98) 100%), url('https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop') center/cover;
+            padding: 100px 0;
+            border-radius: 30px;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Global Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand"><i class="ph ph-taxi"></i> LOCAL TAXI</a>
+
+            <div class="nav-links d-none d-lg-flex">
+                <a href="index.html" class="active">Home</a>
+                <a href="home-2.html">Home 2</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div class="nav-links d-none d-xl-flex align-items-center">
+                <a href="#" class="btn btn-secondary btn-sm js-theme-toggle" style="padding: 8px 12px;"><i
+                        class="ph ph-moon"></i></a>
+                <a href="#" class="btn btn-secondary btn-sm js-rtl-toggle" style="padding: 8px 12px;">RTL</a>
+                <a href="register.html" class="btn btn-secondary btn-sm" style="padding: 8px 16px;">Sign Up</a>
+                <a href="booking.html" class="btn btn-primary">Book A Ride</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section class="hero position-relative"
+        style="background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; padding: 120px 0; min-height: 80vh; display: flex; align-items: center;">
+        <div class="position-absolute w-100 h-100 top-0 start-0"
+            style="background: linear-gradient(90deg, rgba(11,14,18,0.95) 0%, rgba(11,14,18,0.6) 50%, rgba(11,14,18,0.1) 100%);">
+        </div>
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
+                    <span class="eyebrow" style="color: var(--primary-accent);">Premium City Mobility</span>
+                    <h1 class="text-white fw-bold mb-4"
+                        style="font-size: clamp(40px,5vw,64px); letter-spacing: -1px; line-height: 1.1;">Your
+                        City.<br>Your Ride.<br>Your Time.</h1>
+                    <p class="mb-5 text-light mx-auto mx-lg-0" style="font-size: 18px; max-width: 480px; opacity: 0.9;">
+                        Reliable local rides, airport transfers and premium cab services with transparent fares and
+                        real-time driver tracking.</p>
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                        <a href="booking.html" class="btn btn-primary btn-lg py-3 px-5 fw-bold"
+                            style="border-radius: 12px;">Book A Ride</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div
+                        style="background: var(--card-bg); border-radius: 24px; padding: 32px; border: 1px solid var(--border-color); box-shadow: 0 24px 48px rgba(0,0,0,0.2);">
+                        <h4 class="fw-bold mb-4">Quick Booking</h4>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <i class="ph ph-circle-dashed" style="color: var(--secondary-accent); font-size: 20px;"></i>
+                            <input type="text" class="form-control bg-transparent" placeholder="Pickup Location">
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <i class="ph ph-map-pin" style="color: var(--primary-accent); font-size: 20px;"></i>
+                            <input type="text" class="form-control bg-transparent" placeholder="Destination">
+                        </div>
+                        <div class="row g-3 mb-4">
+                            <div class="col-6"><input type="date" class="form-control bg-transparent"></div>
+                            <div class="col-6"><input type="time" class="form-control bg-transparent"></div>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary w-100 py-3 fw-bold"
+                            style="border-radius: 10px;">Continue</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: How It Works -->
+    <section style="background: var(--primary-bg); padding: 100px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="eyebrow">Simple Process</span>
+                <h2 class="fw-bold mb-3" style="letter-spacing: -0.5px;">How It Works</h2>
+                <p class="mx-auto" style="max-width: 500px; color: var(--text-secondary);">Four simple steps to get you
+                    where you need to be, comfortably and on time.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-icon-wrap"><i class="ph ph-map-trifold"></i></div>
+                        <h5 class="fw-bold mb-2">1. Book</h5>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Enter your pickup and
+                            drop-off locations in our app or website.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-icon-wrap"><i class="ph ph-car-profile"></i></div>
+                        <h5 class="fw-bold mb-2">2. Choose</h5>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Select your preferred
+                            vehicle class from Economy to Premium SUV.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-icon-wrap"><i class="ph ph-navigation-arrow"></i></div>
+                        <h5 class="fw-bold mb-2">3. Track</h5>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Watch your driver arrive in
+                            real-time on the live map.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-icon-wrap"><i class="ph ph-smiley"></i></div>
+                        <h5 class="fw-bold mb-2">4. Ride</h5>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Sit back, relax, and enjoy
+                            your premium journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Featured Fleet -->
+    <section style="background: var(--secondary-bg); padding: 100px 0;">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3">
+                <div>
+                    <span class="eyebrow">Our Fleet</span>
+                    <h2 class="fw-bold mb-0" style="letter-spacing: -0.5px;">Vehicles for Every Need</h2>
+                </div>
+                <a href="vehicles.html" class="btn btn-secondary fw-bold" style="border-radius: 10px;">View Full
+                    Fleet</a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="fleet-card">
+                        <div class="overflow-hidden">
+                            <img src="assets/images/economy.png" alt="Economy" class="fleet-img">
+                        </div>
+                        <div class="p-4">
+                            <h5 class="fw-bold mb-1">Economy Class</h5>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Comfortable
+                                everyday sedans.</p>
+                            <div class="d-flex gap-3 mb-4" style="font-size: 13px; color: var(--text-secondary);">
+                                <span><i class="ph ph-user me-1 text-primary-accent"
+                                        style="color: var(--primary-accent);"></i> 4 Pax</span>
+                                <span><i class="ph ph-briefcase me-1 text-primary-accent"
+                                        style="color: var(--primary-accent);"></i> 2 Bags</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-secondary w-100 fw-bold"
+                                style="border-radius: 8px;">From $25</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="fleet-card" style="border-color: var(--primary-accent);">
+                        <div class="overflow-hidden position-relative">
+                            <span
+                                style="position: absolute; top: 16px; left: 16px; background: var(--primary-accent); color: #111; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; z-index: 2;">Most
+                                Popular</span>
+                            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop"
+                                alt="Premium" class="fleet-img">
+                        </div>
+                        <div class="p-4">
+                            <h5 class="fw-bold mb-1">Premium Class</h5>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Luxury sedans
+                                for VIP travel.</p>
+                            <div class="d-flex gap-3 mb-4" style="font-size: 13px; color: var(--text-secondary);">
+                                <span><i class="ph ph-user me-1 text-primary-accent"
+                                        style="color: var(--primary-accent);"></i> 4 Pax</span>
+                                <span><i class="ph ph-briefcase me-1 text-primary-accent"
+                                        style="color: var(--primary-accent);"></i> 3 Bags</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-primary w-100 fw-bold"
+                                style="border-radius: 8px;">From $45</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="fleet-card">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop"
+                                alt="SUV" class="fleet-img">
+                        </div>
+                        <div class="p-4">
+                            <h5 class="fw-bold mb-1">SUV Class</h5>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Spacious
+                                rides for groups.</p>
+                            <div class="d-flex gap-3 mb-4" style="font-size: 13px; color: var(--text-secondary);">
+                                <span><i class="ph ph-user me-1 text-primary-accent"
+                                        style="color: var(--primary-accent);"></i> 6 Pax</span>
+                                <span><i class="ph ph-briefcase me-1 text-primary-accent"
+                                        style="color: var(--primary-accent);"></i> 5 Bags</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-secondary w-100 fw-bold"
+                                style="border-radius: 8px;">From $60</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Benefits -->
+    <section style="background: var(--primary-bg); padding: 100px 0;">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=900&auto=format&fit=crop"
+                        alt="Benefits" class="img-fluid rounded-4" style="box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-lg-6">
+                    <span class="eyebrow">Why Choose Us</span>
+                    <h2 class="fw-bold mb-5" style="letter-spacing: -0.5px;">Premium Service,<br>Every Single Time.</h2>
+
+                    <div class="d-flex flex-column gap-4">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="benefit-icon"><i class="ph ph-currency-dollar"></i></div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Fixed Pricing. No Surge.</h5>
+                                <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">Pay exactly what
+                                    you see. We never increase prices during busy hours or bad weather.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="benefit-icon"><i class="ph ph-shield-check"></i></div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Verified & Professional Drivers</h5>
+                                <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">All our drivers
+                                    undergo strict background checks and regular training for your safety.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="benefit-icon"><i class="ph ph-clock-countdown"></i></div>
+                            <div>
+                                <h5 class="fw-bold mb-1">On-Time Guarantee</h5>
+                                <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">We respect your
+                                    time. Our advanced dispatch system ensures prompt pickups.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Testimonials -->
+    <section style="background: var(--secondary-bg); padding: 100px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="eyebrow">Rider Reviews</span>
+                <h2 class="fw-bold" style="letter-spacing: -0.5px;">Loved by Thousands</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div
+                        style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 24px; padding: 48px; text-align: center;">
+                        <i class="ph ph-quotes"
+                            style="font-size: 48px; color: var(--primary-accent); opacity: 0.5; margin-bottom: 24px;"></i>
+                        <p
+                            style="font-size: 20px; font-weight: 500; font-family: var(--font-main); line-height: 1.6; margin-bottom: 32px; color: var(--text-primary);">
+                            "By far the best taxi service I've used. The cars are always spotless, the drivers are
+                            incredibly professional, and I love that the fare is fixed before I even book."
+                        </p>
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                            <div
+                                style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary-accent); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #111; font-size: 18px;">
+                                SJ</div>
+                            <div class="text-start">
+                                <div class="fw-bold" style="font-size: 15px;">Sarah Jenkins</div>
+                                <div style="font-size: 13px; color: var(--text-secondary);">Frequent Rider</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: FAQs -->
+    <section style="background: var(--secondary-bg); padding: 100px 0;">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <span class="eyebrow">Got Questions?</span>
+                    <h2 class="fw-bold mb-4" style="letter-spacing: -0.5px;">Frequently Asked Questions</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px;">Everything you need to know about
+                        booking, riding, and paying with Local Taxi.</p>
+                    <a href="contact.html" class="btn btn-outline-primary fw-bold" style="border-radius: 10px;">Contact
+                        Support</a>
+                </div>
+                <div class="col-lg-7">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item"
+                            style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 16px; overflow: hidden;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq1"
+                                    style="background: transparent; color: var(--text-primary); box-shadow: none; padding: 20px 24px;">
+                                    Do you charge surge pricing?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body"
+                                    style="color: var(--text-secondary); border-top: 1px solid var(--border-color); padding: 20px 24px;">
+                                    No, we never use surge pricing. Our fares are fixed and transparent. What you see
+                                    when you book is exactly what you pay, regardless of traffic or weather.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item"
+                            style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 16px; overflow: hidden;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq2"
+                                    style="background: transparent; color: var(--text-primary); box-shadow: none; padding: 20px 24px;">
+                                    Can I pre-book a ride for a later date?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body"
+                                    style="color: var(--text-secondary); border-top: 1px solid var(--border-color); padding: 20px 24px;">
+                                    Yes! You can schedule a ride up to 30 days in advance through our app or website.
+                                    Your driver will be confirmed and waiting for you at the exact requested time.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item"
+                            style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 0; overflow: hidden;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq3"
+                                    style="background: transparent; color: var(--text-primary); box-shadow: none; padding: 20px 24px;">
+                                    Are your drivers vetted?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body"
+                                    style="color: var(--text-secondary); border-top: 1px solid var(--border-color); padding: 20px 24px;">
+                                    Absolutely. Every driver undergoes a strict multi-step background check, driving
+                                    record review, and in-person interview before joining our premium fleet.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: App Download CTA -->
+    <section style="background: var(--primary-bg); padding-bottom: 100px;">
+        <div class="container">
+            <div class="app-section">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <span class="eyebrow" style="color: var(--primary-accent);">Get The App</span>
+                        <h2 class="text-white fw-bold mb-4" style="font-size: clamp(32px, 4vw, 48px);">Mobility in Your
+                            Pocket</h2>
+                        <p class="text-light mx-auto mb-5" style="max-width: 500px; opacity: 0.9;">Download our mobile
+                            app to book rides faster, track your driver in real-time, and access exclusive in-app
+                            discounts.</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <a href="#" class="btn btn-light btn-lg px-4 d-flex align-items-center gap-3"
+                                style="border-radius: 12px;">
+                                <i class="ph ph-apple-logo" style="font-size: 28px;"></i>
+                                <div class="text-start">
+                                    <div style="font-size: 11px; font-weight: 600; line-height: 1;">Download on the
+                                    </div>
+                                    <div style="font-size: 16px; font-weight: 800; line-height: 1; margin-top: 2px;">App
+                                        Store</div>
+                                </div>
+                            </a>
+                            <a href="#" class="btn btn-outline-light btn-lg px-4 d-flex align-items-center gap-3"
+                                style="border-radius: 12px; background: rgba(255,255,255,0.1);">
+                                <i class="ph ph-google-play-logo" style="font-size: 28px;"></i>
+                                <div class="text-start">
+                                    <div style="font-size: 11px; font-weight: 600; line-height: 1;">GET IT ON</div>
+                                    <div style="font-size: 16px; font-weight: 800; line-height: 1; margin-top: 2px;">
+                                        Google Play</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h2 class="navbar-brand mb-4"><i class="ph ph-taxi"></i> LOCAL TAXI</h2>
+                    <p class="mb-4">Premium mobility for people who value time, comfort and reliability.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="me-3"><i class="ph ph-facebook-logo" style="font-size: 24px;"></i></a>
+                        <a href="#" class="me-3"><i class="ph ph-x-logo" style="font-size: 24px;"></i></a>
+                        <a href="#" class="me-3"><i class="ph ph-instagram-logo" style="font-size: 24px;"></i></a>
+                        <a href="#"><i class="ph ph-linkedin-logo" style="font-size: 24px;"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">City Rides</a></li>
+                        <li><a href="#">Airport Transfers</a></li>
+                        <li><a href="#">Corporate Travel</a></li>
+                        <li><a href="#">Outstation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Passengers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Book A Ride</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Ride History</a></li>
+                        <li><a href="#">Saved Locations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-top" style="border-color: var(--border-color) !important;">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <p class="mb-0">© 2026 Local Taxi. All rights reserved.</p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <button id="scrollTop" class="btn btn-primary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 99; border-radius: 50%; width: 40px; height: 40px; padding: 0; align-items: center; justify-content: center;"><i
+            class="ph ph-arrow-up"></i></button>
+</body>
+
+</html>

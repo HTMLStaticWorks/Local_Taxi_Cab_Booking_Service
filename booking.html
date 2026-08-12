@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book A Ride - Local Taxi | Premium City Mobility</title>
+    <meta name="description"
+        content="Book a premium taxi ride online. City rides, airport transfers, corporate travel and outstation trips.">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <style>
+        .booking-step-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .booking-step-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .step-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(231, 183, 90, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-accent);
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .vehicle-option .vehicle-card-inner {
+            border: 2px solid var(--border-color);
+            border-radius: 14px;
+            padding: 24px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .vehicle-option .vehicle-card-inner:hover {
+            border-color: var(--primary-accent);
+        }
+
+        .vehicle-option input[type="radio"]:checked~label .vehicle-card-inner {
+            border-color: var(--primary-accent) !important;
+            background: rgba(231, 183, 90, 0.06) !important;
+        }
+
+        .summary-sticky {
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 2px solid var(--primary-accent);
+            padding: 32px;
+        }
+
+        .form-control {
+            background: var(--secondary-bg) !important;
+            border: 1px solid var(--border-color) !important;
+            color: var(--text-primary) !important;
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-accent) !important;
+            box-shadow: 0 0 0 3px rgba(231, 183, 90, 0.15) !important;
+        }
+
+        .fare-divider {
+            border-top: 1px dashed var(--border-color);
+            margin: 16px 0;
+        }
+
+        .pref-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Global Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand"><i class="ph ph-taxi"></i> LOCAL TAXI</a>
+
+            <div class="nav-links d-none d-lg-flex">
+                <a href="index.html">Home</a>
+                <a href="home-2.html">Home 2</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div class="nav-links d-none d-xl-flex align-items-center">
+                <a href="#" class="btn btn-secondary btn-sm js-theme-toggle" style="padding: 8px 12px;"><i
+                        class="ph ph-moon"></i></a>
+                <a href="#" class="btn btn-secondary btn-sm js-rtl-toggle" style="padding: 8px 12px;">RTL</a>
+                <a href="register.html" class="btn btn-secondary btn-sm" style="padding: 8px 16px;">Sign Up</a>
+                <a href="booking.html" class="btn btn-primary">Book A Ride</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero position-relative"
+        style="background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; padding: 100px 0 80px 0; min-height: 380px; display: flex; align-items: center;">
+        <div class="position-absolute w-100 h-100 top-0 start-0"
+            style="background: linear-gradient(135deg, rgba(11,14,18,0.9) 0%, rgba(11,14,18,0.5) 100%);"></div>
+        <div class="container position-relative text-center" style="z-index: 2;">
+            <span
+                style="color: var(--primary-accent); font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 16px;">Reserve
+                Your Journey</span>
+            <h1 class="text-white fw-bold mb-3 mx-auto"
+                style="font-size: clamp(36px,5vw,60px); letter-spacing: -1px; max-width: 700px;">Book Your Premium Ride
+            </h1>
+            <p class="text-light mb-0 mx-auto" style="max-width: 540px; opacity: 0.85; font-size: 17px;">Experience the
+                ultimate in city mobility. Fast, reliable, and tailored to your schedule.</p>
+        </div>
+    </section>
+
+    <!-- Booking Body -->
+    <section style="background: var(--secondary-bg); padding: 60px 0 80px 0;">
+        <div class="container">
+            <div class="row g-5 align-items-start">
+
+                <!-- Left: Booking Steps -->
+                <div class="col-lg-7">
+
+                    <!-- Step 1: Ride Details -->
+                    <div class="booking-step-card">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="step-icon"><i class="ph ph-map-pin-line"></i></div>
+                            <div>
+                                <h4 class="mb-0 fw-bold">Ride Details</h4>
+                                <small style="color: var(--text-secondary);">Where are you going?</small>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="position-relative">
+                                    <i class="ph ph-circle-dashed position-absolute"
+                                        style="top: 50%; left: 14px; transform: translateY(-50%); color: var(--secondary-accent); font-size: 18px; z-index: 1;"></i>
+                                    <input type="text" class="form-control" id="pickupLocation"
+                                        placeholder="Pickup Location" style="padding-left: 42px;">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="position-relative">
+                                    <i class="ph ph-map-pin position-absolute"
+                                        style="top: 50%; left: 14px; transform: translateY(-50%); color: var(--primary-accent); font-size: 18px; z-index: 1;"></i>
+                                    <input type="text" class="form-control" id="dropoffLocation"
+                                        placeholder="Destination" style="padding-left: 42px;">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold"
+                                    style="color: var(--text-secondary);">Date</label>
+                                <input type="date" class="form-control" id="rideDate">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold"
+                                    style="color: var(--text-secondary);">Time</label>
+                                <input type="time" class="form-control" id="rideTime">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Vehicle Class -->
+                    <div class="booking-step-card">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="step-icon"><i class="ph ph-car-profile"></i></div>
+                            <div>
+                                <h4 class="mb-0 fw-bold">Select Vehicle</h4>
+                                <small style="color: var(--text-secondary);">Choose your ride class</small>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-4 vehicle-option">
+                                <label for="v-economy" class="w-100">
+                                    <input type="radio" name="vehicleClass" id="v-economy" class="d-none" checked>
+                                    <div class="vehicle-card-inner"
+                                        style="border-color: var(--primary-accent); background: rgba(231,183,90,0.06);">
+                                        <i class="ph ph-car mb-2"
+                                            style="font-size: 36px; color: var(--primary-accent); display: block;"></i>
+                                        <div class="fw-bold mb-1">Economy</div>
+                                        <div class="text-secondary" style="font-size: 13px; margin-bottom: 10px;">Up to
+                                            4 pax</div>
+                                        <span
+                                            style="background: var(--primary-accent); color: #111; font-weight: 700; border-radius: 20px; padding: 4px 12px; font-size: 12px;">From
+                                            $25</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="col-md-4 vehicle-option">
+                                <label for="v-premium" class="w-100">
+                                    <input type="radio" name="vehicleClass" id="v-premium" class="d-none">
+                                    <div class="vehicle-card-inner">
+                                        <i class="ph ph-taxi mb-2"
+                                            style="font-size: 36px; color: var(--text-secondary); display: block;"></i>
+                                        <div class="fw-bold mb-1">Premium</div>
+                                        <div class="text-secondary" style="font-size: 13px; margin-bottom: 10px;">Up to
+                                            4 pax</div>
+                                        <span
+                                            style="background: var(--border-color); color: var(--text-secondary); border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600;">From
+                                            $45</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="col-md-4 vehicle-option">
+                                <label for="v-suv" class="w-100">
+                                    <input type="radio" name="vehicleClass" id="v-suv" class="d-none">
+                                    <div class="vehicle-card-inner">
+                                        <i class="ph ph-jeep mb-2"
+                                            style="font-size: 36px; color: var(--text-secondary); display: block;"></i>
+                                        <div class="fw-bold mb-1">SUV / Van</div>
+                                        <div class="text-secondary" style="font-size: 13px; margin-bottom: 10px;">Up to
+                                            6 pax</div>
+                                        <span
+                                            style="background: var(--border-color); color: var(--text-secondary); border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600;">From
+                                            $60</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Preferences -->
+                    <div class="booking-step-card">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="step-icon"><i class="ph ph-sliders-horizontal"></i></div>
+                            <div>
+                                <h4 class="mb-0 fw-bold">Preferences</h4>
+                                <small style="color: var(--text-secondary);">Optional add-ons & notes</small>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="pref-card">
+                                    <i class="ph ph-baby"
+                                        style="font-size: 24px; color: var(--primary-accent); flex-shrink:0;"></i>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold" style="font-size: 14px;">Child Seat</div>
+                                        <div style="font-size: 12px; color: var(--text-secondary);">Required for
+                                            children</div>
+                                    </div>
+                                    <div class="form-check form-switch mb-0">
+                                        <input class="form-check-input" type="checkbox" id="childSeat"
+                                            style="width: 38px; height: 20px; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="pref-card">
+                                    <i class="ph ph-wheelchair"
+                                        style="font-size: 24px; color: var(--primary-accent); flex-shrink:0;"></i>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold" style="font-size: 14px;">Wheelchair Access</div>
+                                        <div style="font-size: 12px; color: var(--text-secondary);">Accessible vehicle
+                                        </div>
+                                    </div>
+                                    <div class="form-check form-switch mb-0">
+                                        <input class="form-check-input" type="checkbox" id="wheelchair"
+                                            style="width: 38px; height: 20px; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" id="specialNotes" rows="3"
+                                    placeholder="Any special instructions for your driver..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Summary Sidebar -->
+                <div class="col-lg-5">
+                    <div class="summary-sticky">
+                        <div class="summary-card">
+                            <h4 class="fw-bold mb-1">Booking Summary</h4>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 0;">Review your trip
+                                before confirming</p>
+
+                            <div class="fare-divider"></div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span style="color: var(--text-secondary); font-size: 14px;"><i
+                                        class="ph ph-car me-2"></i>Vehicle Class</span>
+                                <span class="fw-semibold">Economy</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span style="color: var(--text-secondary); font-size: 14px;"><i
+                                        class="ph ph-clock me-2"></i>Est. Duration</span>
+                                <span class="fw-semibold">~25 min</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span style="color: var(--text-secondary); font-size: 14px;"><i
+                                        class="ph ph-road-horizon me-2"></i>Distance</span>
+                                <span class="fw-semibold">~12 km</span>
+                            </div>
+
+                            <div class="fare-divider"></div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span style="color: var(--text-secondary); font-size: 14px;">Base Fare</span>
+                                <span>$20.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span style="color: var(--text-secondary); font-size: 14px;">Booking Fee</span>
+                                <span>$5.00</span>
+                            </div>
+
+                            <div class="fare-divider"></div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <span class="fw-bold fs-5">Total</span>
+                                <span class="fw-bold fs-3" style="color: var(--primary-accent);">$25.00</span>
+                            </div>
+
+                            <button class="btn btn-primary w-100 py-3 fw-bold"
+                                style="border-radius: 12px; font-size: 16px; letter-spacing: 0.5px;">
+                                <i class="ph ph-check-circle me-2"></i> Confirm Booking
+                            </button>
+
+                            <div class="text-center mt-3" style="font-size: 12px; color: var(--text-secondary);">
+                                <i class="ph ph-shield-check me-1"></i> Safe, secure and insured rides guaranteed
+                            </div>
+                        </div>
+
+                        <!-- Promo Code Card -->
+                        <div
+                            style="background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color); padding: 24px; margin-top: 20px;">
+                            <h6 class="fw-bold mb-3"><i class="ph ph-ticket me-2"
+                                    style="color: var(--primary-accent);"></i>Promo Code</h6>
+                            <div class="d-flex gap-2">
+                                <input type="text" class="form-control" placeholder="Enter promo code"
+                                    style="border-radius: 10px; font-size: 14px;">
+                                <button class="btn btn-primary fw-bold"
+                                    style="border-radius: 10px; padding: 10px 18px; font-size: 14px; white-space: nowrap;">Apply</button>
+                            </div>
+                            <p class="mb-0 mt-2" style="font-size: 12px; color: var(--text-secondary);">Use code <strong
+                                    style="color: var(--primary-accent);">FIRST10</strong> for 10% off your first ride!
+                            </p>
+                        </div>
+
+                        <!-- Safety & Trust Card -->
+                        <div
+                            style="background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color); padding: 24px; margin-top: 20px;">
+                            <h6 class="fw-bold mb-3"><i class="ph ph-shield-check me-2"
+                                    style="color: var(--primary-accent);"></i>Ride Guarantee</h6>
+                            <div class="d-flex align-items-start gap-3 mb-3">
+                                <i class="ph ph-clock-countdown"
+                                    style="font-size: 20px; color: var(--primary-accent); flex-shrink: 0; margin-top: 2px;"></i>
+                                <div>
+                                    <div class="fw-semibold" style="font-size: 13px;">On-Time Pickup</div>
+                                    <div style="font-size: 12px; color: var(--text-secondary);">Driver arrives within
+                                        the scheduled time, guaranteed.</div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start gap-3 mb-3">
+                                <i class="ph ph-currency-dollar"
+                                    style="font-size: 20px; color: var(--primary-accent); flex-shrink: 0; margin-top: 2px;"></i>
+                                <div>
+                                    <div class="fw-semibold" style="font-size: 13px;">Fixed Fare</div>
+                                    <div style="font-size: 12px; color: var(--text-secondary);">No surge pricing. Pay
+                                        exactly what you see.</div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="ph ph-star"
+                                    style="font-size: 20px; color: var(--primary-accent); flex-shrink: 0; margin-top: 2px;"></i>
+                                <div>
+                                    <div class="fw-semibold" style="font-size: 13px;">Verified Drivers</div>
+                                    <div style="font-size: 12px; color: var(--text-secondary);">All drivers
+                                        background-checked and rated 4.5+.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: How It Works -->
+    <section style="background: var(--primary-bg); padding: 80px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span
+                    style="color: var(--primary-accent); font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 12px;">Simple
+                    Process</span>
+                <h2 class="fw-bold" style="letter-spacing: -0.5px;">How It Works</h2>
+                <p class="mx-auto" style="max-width: 500px;">From booking to arrival — we make every step seamless,
+                    transparent and stress-free.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div
+                        style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px 20px; text-align: center; height: 100%; transition: all 0.3s ease;">
+                        <div
+                            style="width: 72px; height: 72px; border-radius: 20px; background: rgba(231,183,90,0.12); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto;">
+                            <i class="ph ph-map-trifold" style="font-size: 32px; color: var(--primary-accent);"></i>
+                        </div>
+                        <div
+                            style="width: 28px; height: 28px; border-radius: 50%; background: var(--primary-accent); color: #111; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto;">
+                            1</div>
+                        <h5 class="fw-bold mb-2">Enter Your Route</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Set your pickup location and destination in
+                            seconds.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div
+                        style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px 20px; text-align: center; height: 100%; transition: all 0.3s ease;">
+                        <div
+                            style="width: 72px; height: 72px; border-radius: 20px; background: rgba(231,183,90,0.12); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto;">
+                            <i class="ph ph-car-profile" style="font-size: 32px; color: var(--primary-accent);"></i>
+                        </div>
+                        <div
+                            style="width: 28px; height: 28px; border-radius: 50%; background: var(--primary-accent); color: #111; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto;">
+                            2</div>
+                        <h5 class="fw-bold mb-2">Choose Your Vehicle</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Select from Economy, Premium or SUV based on your
+                            need.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div
+                        style="background: var(--card-bg); border: 2px solid var(--primary-accent); border-radius: 16px; padding: 32px 20px; text-align: center; height: 100%; transition: all 0.3s ease; background: rgba(231,183,90,0.04);">
+                        <div
+                            style="width: 72px; height: 72px; border-radius: 20px; background: rgba(231,183,90,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto;">
+                            <i class="ph ph-check-circle" style="font-size: 32px; color: var(--primary-accent);"></i>
+                        </div>
+                        <div
+                            style="width: 28px; height: 28px; border-radius: 50%; background: var(--primary-accent); color: #111; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto;">
+                            3</div>
+                        <h5 class="fw-bold mb-2">Confirm Booking</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Review your fare summary and confirm with one tap.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div
+                        style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px 20px; text-align: center; height: 100%; transition: all 0.3s ease;">
+                        <div
+                            style="width: 72px; height: 72px; border-radius: 20px; background: rgba(231,183,90,0.12); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto;">
+                            <i class="ph ph-navigation-arrow"
+                                style="font-size: 32px; color: var(--primary-accent);"></i>
+                        </div>
+                        <div
+                            style="width: 28px; height: 28px; border-radius: 50%; background: var(--primary-accent); color: #111; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto;">
+                            4</div>
+                        <h5 class="fw-bold mb-2">Enjoy Your Ride</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Your driver arrives on time. Track live from the
+                            app.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Customer Reviews -->
+    <section style="background: var(--secondary-bg); padding: 80px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span
+                    style="color: var(--primary-accent); font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 12px;">Testimonials</span>
+                <h2 class="fw-bold" style="letter-spacing: -0.5px;">What Our Riders Say</h2>
+                <p class="mx-auto" style="max-width: 500px;">Thousands of happy passengers trust Local Taxi for their
+                    daily commute and special trips.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div
+                        style="background: var(--card-bg); border-radius: 16px; padding: 28px; border: 1px solid var(--border-color); height: 100%; text-align: center; display: flex; flex-direction: column;">
+                        <div class="d-flex justify-content-center gap-1 mb-3">
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                        </div>
+                        <p class="flex-grow-1" style="font-size: 15px; line-height: 1.7; margin-bottom: 20px;">"Incredibly smooth airport
+                            transfer. The driver was punctual, the car was spotless, and the fare was exactly as quoted.
+                            Will definitely use again!"</p>
+                        <div class="d-flex align-items-center justify-content-center gap-3 text-start">
+                            <div
+                                style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #E7B75A, #F1C46E); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #111; font-size: 16px;">
+                                S</div>
+                            <div>
+                                <div class="fw-semibold" style="font-size: 14px;">Sarah Mitchell</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">Business Traveler</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div
+                        style="background: var(--card-bg); border-radius: 16px; padding: 28px; border: 1px solid var(--primary-accent); height: 100%; text-align: center; display: flex; flex-direction: column;">
+                        <div class="d-flex justify-content-center gap-1 mb-3">
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                        </div>
+                        <p class="flex-grow-1" style="font-size: 15px; line-height: 1.7; margin-bottom: 20px;">"Best cab service in the
+                            city. I use it every day for my office commute. Always on time, always professional. The
+                            Premium class is absolutely worth it."</p>
+                        <div class="d-flex align-items-center justify-content-center gap-3 text-start">
+                            <div
+                                style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #6FE7C8, #4DD8B8); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #111; font-size: 16px;">
+                                R</div>
+                            <div>
+                                <div class="fw-semibold" style="font-size: 14px;">Rahul Sharma</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">Daily Commuter</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div
+                        style="background: var(--card-bg); border-radius: 16px; padding: 28px; border: 1px solid var(--border-color); height: 100%; text-align: center; display: flex; flex-direction: column;">
+                        <div class="d-flex justify-content-center gap-1 mb-3">
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-fill" style="color: var(--primary-accent);"></i>
+                            <i class="ph ph-star-half" style="color: var(--primary-accent);"></i>
+                        </div>
+                        <p class="flex-grow-1" style="font-size: 15px; line-height: 1.7; margin-bottom: 20px;">"Booked an SUV for a family
+                            trip and it was perfect. Spacious, comfortable and the driver was so courteous. Transparent
+                            pricing with no hidden charges."</p>
+                        <div class="d-flex align-items-center justify-content-center gap-3 text-start">
+                            <div
+                                style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #8FA8FF, #6F8AEE); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 16px;">
+                                P</div>
+                            <div>
+                                <div class="fw-semibold" style="font-size: 14px;">Priya Nair</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">Family Trip</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h2 class="navbar-brand mb-4"><i class="ph ph-taxi"></i> LOCAL TAXI</h2>
+                    <p class="mb-4">Premium mobility for people who value time, comfort and reliability.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="me-3"><i class="ph ph-facebook-logo" style="font-size: 24px;"></i></a>
+                        <a href="#" class="me-3"><i class="ph ph-x-logo" style="font-size: 24px;"></i></a>
+                        <a href="#" class="me-3"><i class="ph ph-instagram-logo" style="font-size: 24px;"></i></a>
+                        <a href="#"><i class="ph ph-linkedin-logo" style="font-size: 24px;"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">City Rides</a></li>
+                        <li><a href="#">Airport Transfers</a></li>
+                        <li><a href="#">Corporate Travel</a></li>
+                        <li><a href="#">Outstation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Passengers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Book A Ride</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Ride History</a></li>
+                        <li><a href="#">Saved Locations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-5 pt-4 border-top" style="border-color: var(--border-color) !important;">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <p class="mb-0">© 2026 Local Taxi. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <button id="scrollTop" class="btn btn-primary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 99; border-radius: 50%; width: 40px; height: 40px; padding: 0; align-items: center; justify-content: center;"><i
+            class="ph ph-arrow-up"></i></button>
+</body>
+
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Fleet - Local Taxi | Premium Vehicles for Every Journey</title>
+    <meta name="description"
+        content="Explore Local Taxi's premium fleet — Economy sedans, Luxury Premiums, and spacious SUVs for every travel need.">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <style>
+        .eyebrow {
+            display: inline-block;
+            color: var(--primary-accent);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        /* Vehicle Card */
+        .vehicle-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            height: 100%;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary-accent);
+        }
+
+        .vehicle-card .vehicle-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .vehicle-card:hover .vehicle-img {
+            transform: scale(1.04);
+        }
+
+        .vehicle-card .img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .vehicle-card .vehicle-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--primary-accent);
+            color: #111;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .vehicle-card .card-body {
+            padding: 24px;
+        }
+
+        .spec-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(231, 183, 90, 0.08);
+            border: 1px solid rgba(231, 183, 90, 0.2);
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .spec-chip i {
+            color: var(--primary-accent);
+            font-size: 14px;
+        }
+
+        /* Feature comparison */
+        .compare-table {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .compare-table th {
+            background: rgba(231, 183, 90, 0.08);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .compare-table th:first-child {
+            text-align: left;
+        }
+
+        .compare-table td {
+            padding: 14px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+            vertical-align: middle;
+            color: var(--text-secondary);
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-table td:first-child {
+            color: var(--text-primary);
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .compare-table .check {
+            color: #4ade80;
+            font-size: 20px;
+        }
+
+        .compare-table .cross {
+            color: #f87171;
+            font-size: 20px;
+            opacity: 0.5;
+        }
+
+        /* Fleet stat */
+        .fleet-stat {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .fleet-stat:hover {
+            border-color: var(--primary-accent);
+            transform: translateY(-3px);
+        }
+
+        .fleet-stat-num {
+            font-size: 42px;
+            font-weight: 800;
+            font-family: var(--font-main);
+            color: var(--primary-accent);
+            line-height: 1;
+        }
+
+        /* Service type card */
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-accent);
+            box-shadow: 0 8px 32px rgba(231, 183, 90, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: rgba(231, 183, 90, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: var(--primary-accent);
+            margin-bottom: 18px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Global Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand"><i class="ph ph-taxi"></i> LOCAL TAXI</a>
+            <div class="nav-links d-none d-lg-flex">
+                <a href="index.html">Home</a>
+                <a href="home-2.html">Home 2</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="vehicles.html" class="active">Vehicles</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div class="nav-links d-none d-xl-flex align-items-center">
+                <a href="#" class="btn btn-secondary btn-sm js-theme-toggle" style="padding: 8px 12px;"><i
+                        class="ph ph-moon"></i></a>
+                <a href="#" class="btn btn-secondary btn-sm js-rtl-toggle" style="padding: 8px 12px;">RTL</a>
+                <a href="register.html" class="btn btn-secondary btn-sm" style="padding: 8px 16px;">Sign Up</a>
+                <a href="booking.html" class="btn btn-primary">Book A Ride</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section class="hero position-relative"
+        style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; padding: 100px 0 80px 0; min-height: 380px; display: flex; align-items: center;">
+        <div class="position-absolute w-100 h-100 top-0 start-0"
+            style="background: linear-gradient(135deg, rgba(11,14,18,0.92) 0%, rgba(11,14,18,0.5) 100%);"></div>
+        <div class="container position-relative text-center" style="z-index: 2;">
+            <span class="eyebrow">Our Fleet</span>
+            <h1 class="text-white fw-bold mb-3 mx-auto"
+                style="font-size: clamp(36px,5vw,60px); letter-spacing: -1px; max-width: 700px;">Vehicles Built for
+                Comfort & Class</h1>
+            <p class="text-light mb-0 mx-auto" style="max-width: 540px; opacity: 0.85; font-size: 17px;">From compact
+                city rides to spacious family SUVs — our meticulously maintained fleet is ready for any journey.</p>
+        </div>
+    </section>
+
+    <!-- Section 2: Fleet Overview -->
+    <section style="background: var(--secondary-bg); padding: 80px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="eyebrow">Our Fleet</span>
+                <h2 class="fw-bold" style="letter-spacing: -0.5px;">Choose Your Ride</h2>
+                <p class="mx-auto" style="max-width: 500px;">Every vehicle in our fleet is professionally maintained,
+                    inspected monthly, and driven by a verified professional driver.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+
+                <!-- Economy -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="vehicle-card">
+                        <div class="img-wrapper">
+                            <img src="assets/images/service1.jpg" alt="Economy Sedan" class="vehicle-img">
+                            <span class="vehicle-badge">Economy</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h4 class="fw-bold mb-0">Standard Sedan</h4>
+                                <span style="color: var(--primary-accent); font-weight: 700; font-size: 18px;">From
+                                    $25</span>
+                            </div>
+                            <p style="font-size: 14px; margin-bottom: 16px;">Perfect for solo commuters and small
+                                groups. Clean, comfortable, and always on time.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="spec-chip"><i class="ph ph-user"></i> 1–4 Pax</span>
+                                <span class="spec-chip"><i class="ph ph-briefcase"></i> 2 Bags</span>
+                                <span class="spec-chip"><i class="ph ph-snowflake"></i> AC</span>
+                                <span class="spec-chip"><i class="ph ph-wifi-high"></i> Wi-Fi</span>
+                                <span class="spec-chip"><i class="ph ph-drop-half"></i> Water</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-secondary w-100 fw-bold"
+                                style="border-radius: 10px; padding: 12px;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="vehicle-card" style="border-color: var(--primary-accent);">
+                        <div class="img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop"
+                                alt="Premium Luxury Sedan" class="vehicle-img">
+                            <span class="vehicle-badge"> Premium</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h4 class="fw-bold mb-0">Luxury Sedan</h4>
+                                <span style="color: var(--primary-accent); font-weight: 700; font-size: 18px;">From
+                                    $45</span>
+                            </div>
+                            <p style="font-size: 14px; margin-bottom: 16px;">Business class comfort for executives and
+                                VIP travelers. Arrive in style.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="spec-chip"><i class="ph ph-user"></i> 1–4 Pax</span>
+                                <span class="spec-chip"><i class="ph ph-briefcase"></i> 3 Bags</span>
+                                <span class="spec-chip"><i class="ph ph-snowflake"></i> Premium AC</span>
+                                <span class="spec-chip"><i class="ph ph-wifi-high"></i> Wi-Fi</span>
+                                <span class="spec-chip"><i class="ph ph-drop-half"></i> Water</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-primary w-100 fw-bold"
+                                style="border-radius: 10px; padding: 12px;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUV -->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="vehicle-card">
+                        <div class="img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop"
+                                alt="SUV Van" class="vehicle-img">
+                            <span class="vehicle-badge">SUV / Van</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h4 class="fw-bold mb-0">SUV / Van</h4>
+                                <span style="color: var(--primary-accent); font-weight: 700; font-size: 18px;">From
+                                    $60</span>
+                            </div>
+                            <p style="font-size: 14px; margin-bottom: 16px;">Ideal for families, group travel, and
+                                airport pickups with extra luggage.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="spec-chip"><i class="ph ph-user"></i> 1–6 Pax</span>
+                                <span class="spec-chip"><i class="ph ph-briefcase"></i> 5 Bags</span>
+                                <span class="spec-chip"><i class="ph ph-snowflake"></i> AC</span>
+                                <span class="spec-chip"><i class="ph ph-wifi-high"></i> Wi-Fi</span>
+                                <span class="spec-chip"><i class="ph ph-baby"></i> Child Seat</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-secondary w-100 fw-bold"
+                                style="border-radius: 10px; padding: 12px;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Fleet Stats + Feature Comparison -->
+    <section style="background: var(--primary-bg); padding: 80px 0;">
+        <div class="container">
+
+            <!-- Stats -->
+            <div class="row g-4 ">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="fleet-stat">
+                        <div class="fleet-stat-num">500+</div>
+                        <div style="font-size: 14px; color: var(--text-secondary); margin-top: 6px;">Vehicles in Fleet
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="fleet-stat">
+                        <div class="fleet-stat-num">100%</div>
+                        <div style="font-size: 14px; color: var(--text-secondary); margin-top: 6px;">Inspected Monthly
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="fleet-stat">
+                        <div class="fleet-stat-num">4.9★</div>
+                        <div style="font-size: 14px; color: var(--text-secondary); margin-top: 6px;">Average Rating
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="fleet-stat">
+                        <div class="fleet-stat-num">3 yrs</div>
+                        <div style="font-size: 14px; color: var(--text-secondary); margin-top: 6px;">Max Vehicle Age
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 4: Fleet Use Cases / Service Types -->
+    <section style="background: var(--secondary-bg); padding: 80px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="eyebrow">Service Types</span>
+                <h2 class="fw-bold" style="letter-spacing: -0.5px;">A Vehicle for Every Occasion</h2>
+                <p class="mx-auto" style="max-width: 520px;">Whatever the journey, we have the right vehicle and driver
+                    for the task.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-airplane-landing"></i></div>
+                        <h5 class="fw-bold mb-2">Airport Transfers</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Punctual pickups and drop-offs at all major
+                            airports. Flight tracking included — we wait if you're delayed.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-buildings"></i></div>
+                        <h5 class="fw-bold mb-2">Corporate Travel</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Premium sedans for executives. Monthly billing,
+                            dedicated account manager, and priority dispatch.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-users-three"></i></div>
+                        <h5 class="fw-bold mb-2">Group & Family</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">SUVs and vans for family outings, school runs, or
+                            group events. Comfortable seating for up to 6.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-heart"></i></div>
+                        <h5 class="fw-bold mb-2">Special Occasions</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Weddings, proms, anniversaries — our premium
+                            vehicles add a touch of luxury to life's best moments.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-map-trifold"></i></div>
+                        <h5 class="fw-bold mb-2">Outstation Trips</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Long-distance rides with fixed pricing. Our
+                            drivers know every highway and shortcut.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-moon-stars"></i></div>
+                        <h5 class="fw-bold mb-2">Night Rides</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Safe late-night rides with verified, experienced
+                            drivers. Available 24/7 across the city.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-wheelchair"></i></div>
+                        <h5 class="fw-bold mb-2">Accessible Rides</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Wheelchair-accessible SUVs with trained drivers.
+                            Pre-book for guaranteed availability.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-hospital"></i></div>
+                        <h5 class="fw-bold mb-2">Medical Trips</h5>
+                        <p style="font-size: 14px; margin-bottom: 0;">Calm, smooth rides for patients. Drivers trained
+                            in first-aid and sensitivity protocols.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Fleet Quality Standards + CTA -->
+    <section style="background: var(--primary-bg); padding: 80px 0;">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+
+                <!-- Quality Standards -->
+                <div class="col-lg-6">
+                    <span class="eyebrow">Fleet Standards</span>
+                    <h2 class="fw-bold mb-4" style="letter-spacing: -0.5px;">Our Commitment to Quality</h2>
+                    <p class="mb-5">Every vehicle in our fleet is held to the highest standards of safety, cleanliness,
+                        and performance before it carries a single passenger.</p>
+                    <div class="d-flex flex-column gap-4">
+                        <div class="d-flex align-items-start gap-4">
+                            <div
+                                style="width:48px;height:48px;border-radius:12px;background:rgba(231,183,90,0.12);display:flex;align-items:center;justify-content:center;color:var(--primary-accent);font-size:22px;flex-shrink:0;">
+                                <i class="ph ph-shield-check"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Monthly Safety Inspections</h5>
+                                <p style="font-size: 14px; margin-bottom: 0;">Every vehicle undergoes a full 62-point
+                                    safety inspection every 30 days by certified mechanics.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-4">
+                            <div
+                                style="width:48px;height:48px;border-radius:12px;background:rgba(231,183,90,0.12);display:flex;align-items:center;justify-content:center;color:var(--primary-accent);font-size:22px;flex-shrink:0;">
+                                <i class="ph ph-sparkle"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Deep Cleaned After Every Ride</h5>
+                                <p style="font-size: 14px; margin-bottom: 0;">Interiors are professionally sanitized
+                                    after each booking. You always ride in a fresh, clean vehicle.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-4">
+                            <div
+                                style="width:48px;height:48px;border-radius:12px;background:rgba(231,183,90,0.12);display:flex;align-items:center;justify-content:center;color:var(--primary-accent);font-size:22px;flex-shrink:0;">
+                                <i class="ph ph-calendar"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Fleet Under 3 Years Old</h5>
+                                <p style="font-size: 14px; margin-bottom: 0;">We retire vehicles older than 3 years to
+                                    ensure you always ride in a modern, well-maintained car.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-4">
+                            <div
+                                style="width:48px;height:48px;border-radius:12px;background:rgba(231,183,90,0.12);display:flex;align-items:center;justify-content:center;color:var(--primary-accent);font-size:22px;flex-shrink:0;">
+                                <i class="ph ph-gps"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Real-Time GPS in All Vehicles</h5>
+                                <p style="font-size: 14px; margin-bottom: 0;">Every vehicle is GPS-tracked live. Share
+                                    your ride with family for complete peace of mind.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Panel -->
+                <div class="col-lg-6">
+                    <div
+                        style="background: linear-gradient(145deg, rgba(231,183,90,0.1) 0%, rgba(111,231,200,0.05) 100%); border: 1px solid var(--primary-accent); border-radius: 24px; padding: 48px 36px; text-align: center;">
+                        <i class="ph ph-taxi"
+                            style="font-size: 64px; color: var(--primary-accent); display: block; margin-bottom: 20px;"></i>
+                        <h3 class="fw-bold mb-3">Ready to Ride in Style?</h3>
+                        <p
+                            style="font-size: 15px; color: var(--text-secondary); margin-bottom: 32px; max-width: 320px; margin-left: auto; margin-right: auto;">
+                            Pick your preferred vehicle class and book your premium ride in under 60 seconds.</p>
+                        <a href="booking.html" class="btn btn-primary btn-lg py-3 px-5 fw-bold mb-3 d-block"
+                            style="border-radius: 12px; font-size: 16px;">
+                            <i class="ph ph-check-circle me-2"></i> Book Your Ride Now
+                        </a>
+                        <a href="pricing.html" class="btn btn-secondary py-3 px-4 fw-bold d-block"
+                            style="border-radius: 12px; font-size: 14px;">
+                            <i class="ph ph-tag me-2"></i> View Pricing Plans
+                        </a>
+                        <p class="mt-3 mb-0" style="font-size: 12px; color: var(--text-secondary);">
+                            <i class="ph ph-shield-check me-1"></i> Fully insured · Verified drivers · 24/7 support
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h2 class="navbar-brand mb-4"><i class="ph ph-taxi"></i> LOCAL TAXI</h2>
+                    <p class="mb-4">Premium mobility for people who value time, comfort and reliability.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="me-3"><i class="ph ph-facebook-logo" style="font-size: 24px;"></i></a>
+                        <a href="#" class="me-3"><i class="ph ph-x-logo" style="font-size: 24px;"></i></a>
+                        <a href="#" class="me-3"><i class="ph ph-instagram-logo" style="font-size: 24px;"></i></a>
+                        <a href="#"><i class="ph ph-linkedin-logo" style="font-size: 24px;"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">City Rides</a></li>
+                        <li><a href="#">Airport Transfers</a></li>
+                        <li><a href="#">Corporate Travel</a></li>
+                        <li><a href="#">Outstation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Passengers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Book A Ride</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Ride History</a></li>
+                        <li><a href="#">Saved Locations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-5 pt-4 border-top" style="border-color: var(--border-color) !important;">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <p class="mb-0">© 2026 Local Taxi. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <button id="scrollTop" class="btn btn-primary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 99; border-radius: 50%; width: 40px; height: 40px; padding: 0; align-items: center; justify-content: center;"><i
+            class="ph ph-arrow-up"></i></button>
+</body>
+
+</html>

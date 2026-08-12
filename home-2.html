@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Taxi - The Arrival</title>
+    <meta name="description" content="Local Taxi - Premium City Mobility">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <style>
+        .eyebrow {
+            display: inline-block;
+            color: var(--primary-accent);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        /* Vertical Status Hero (Unique to Home 2) */
+        .vertical-status {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            background: rgba(11, 14, 18, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 3px solid var(--primary-accent);
+            z-index: 10;
+            width: 280px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+
+        .status-item.active {
+            opacity: 1;
+        }
+
+        .status-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: currentColor;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        /* Split Section */
+        .split-section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .split-image {
+            width: 50%;
+            min-height: 600px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .split-content {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            padding: 100px 6%;
+            background: var(--secondary-bg);
+        }
+
+        /* Custom Cards Home 2 */
+        .h2-service-card {
+            background: var(--card-bg);
+            border: none;
+            border-radius: 0;
+            border-bottom: 2px solid transparent;
+            padding: 40px 30px;
+            transition: all 0.3s;
+        }
+
+        .h2-service-card:hover {
+            border-bottom: 2px solid var(--primary-accent);
+            background: rgba(231, 183, 90, 0.03);
+            transform: translateY(-5px);
+        }
+
+        .stat-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 2px dashed var(--primary-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .stat-circle::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            background: rgba(231, 183, 90, 0.1);
+            z-index: 0;
+        }
+
+        .promo-banner {
+            background: linear-gradient(45deg, #111 0%, #222 100%);
+            border: 1px solid var(--primary-accent);
+            border-radius: 24px;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 1024px) {
+
+            .split-image,
+            .split-content {
+                width: 100%;
+            }
+
+            .vertical-status {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Global Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand"><i class="ph ph-taxi"></i> LOCAL TAXI</a>
+
+            <div class="nav-links d-none d-lg-flex">
+                <a href="index.html">Home</a>
+                <a href="home-2.html" class="active">Home 2</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div class="nav-links d-none d-xl-flex align-items-center">
+                <a href="#" class="btn btn-secondary btn-sm js-theme-toggle" style="padding: 8px 12px;"><i
+                        class="ph ph-moon"></i></a>
+                <a href="#" class="btn btn-secondary btn-sm js-rtl-toggle" style="padding: 8px 12px;">RTL</a>
+                <a href="register.html" class="btn btn-secondary btn-sm" style="padding: 8px 16px;">Sign Up</a>
+                <a href="booking.html" class="btn btn-primary">Book A Ride</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero (Cinematic Arrival) -->
+    <section class="hero position-relative"
+        style="min-height: 100vh; display: flex; align-items: center; padding-top: 80px;">
+        <img src="assets/images/home2-hero.jpg" alt="Premium vehicle arrival" class="hero-bg"
+            style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+        <div class="hero-overlay"
+            style="position: absolute; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(11,14,18,0.95) 0%, rgba(11,14,18,0.4) 100%); z-index: 1;">
+        </div>
+
+        <div class="container hero-content position-relative" style="z-index: 2;">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10 col-xl-8">
+                    <span class="eyebrow" style="color: var(--primary-accent); letter-spacing: 4px;">Arrive
+                        Different</span>
+                    <h1 class="mb-4 text-white fw-bold"
+                        style="font-size: clamp(48px, 6vw, 84px); letter-spacing: -2px; line-height: 1.1;">Every
+                        Journey<br>Deserves A<br>Better Arrival.</h1>
+                    <p class="mb-5 text-light mx-auto" style="font-size: 20px; max-width: 540px; opacity: 0.9;">Premium
+                        transportation meticulously designed around your time, comfort, and destination.</p>
+                    <div class="d-flex gap-3 flex-wrap justify-content-center">
+                        <a href="booking.html" class="btn btn-primary btn-lg py-3 px-5 fw-bold"
+                            style="border-radius: 12px;">Book A Ride</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Section 2: Split Experience -->
+    <section class="p-0">
+        <div class="split-section">
+            <div class="split-image" style="background-image: url('assets/images/home2-img.jpg');">
+            </div>
+            <div class="split-content">
+                <div>
+                    <span class="eyebrow">The Experience</span>
+                    <h2 class="fw-bold mb-4" style="font-size: 42px; letter-spacing: -1px;">From Pickup To Arrival,
+                        Every Detail Matters.</h2>
+                    <p class="mb-5" style="font-size: 16px; color: var(--text-secondary); line-height: 1.8;">Experience
+                        a new standard of urban mobility where every aspect of your journey is meticulously planned. We
+                        don't just drive; we deliver an experience.</p>
+
+                    <div class="row g-5">
+                        <div class="col-sm-6">
+                            <div class="d-flex gap-3 align-items-start">
+                                <i class="ph ph-steering-wheel"
+                                    style="font-size: 32px; color: var(--primary-accent);"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Pro Drivers</h5>
+                                    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Vetted, trained
+                                        and focused purely on your safety and comfort.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex gap-3 align-items-start">
+                                <i class="ph ph-sparkle" style="font-size: 32px; color: var(--primary-accent);"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Immaculate Fleet</h5>
+                                    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Vehicles
+                                        deep-cleaned daily and ready for any occasion.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex gap-3 align-items-start">
+                                <i class="ph ph-clock" style="font-size: 32px; color: var(--primary-accent);"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Punctuality</h5>
+                                    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Time is luxury.
+                                        We arrive 5 minutes before you need us.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex gap-3 align-items-start">
+                                <i class="ph ph-shield-check"
+                                    style="font-size: 32px; color: var(--primary-accent);"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Total Safety</h5>
+                                    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Fully insured
+                                        rides with real-time GPS tracking included.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Specialized Services -->
+    <section style="background: var(--primary-bg); padding: 100px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="eyebrow">Expertise</span>
+                <h2 class="fw-bold mb-3" style="letter-spacing: -0.5px;">Specialized Transport</h2>
+                <p class="mx-auto" style="max-width: 500px; color: var(--text-secondary);">Tailored mobility solutions
+                    designed for specific needs.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="h2-service-card text-center">
+                        <i class="ph ph-airplane-tilt"
+                            style="font-size: 48px; color: var(--primary-accent); margin-bottom: 24px; display: inline-block;"></i>
+                        <h4 class="fw-bold mb-3">Airport Protocol</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">Flight tracking,
+                            meet & greet at arrivals, and 60 minutes complimentary wait time for international flights.
+                        </p>
+                        <a href="services.html"
+                            style="color: var(--primary-accent); font-weight: 700; text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Learn
+                            More <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="h2-service-card text-center">
+                        <i class="ph ph-briefcase"
+                            style="font-size: 48px; color: var(--primary-accent); margin-bottom: 24px; display: inline-block;"></i>
+                        <h4 class="fw-bold mb-3">Executive Travel</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">Dedicated account
+                            managers, monthly consolidated invoicing, and priority dispatch for corporate clients
+                            always.</p>
+                        <a href="services.html"
+                            style="color: var(--primary-accent); font-weight: 700; text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Learn
+                            More <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="h2-service-card text-center">
+                        <i class="ph ph-champagne"
+                            style="font-size: 48px; color: var(--primary-accent); margin-bottom: 24px; display: inline-block;"></i>
+                        <h4 class="fw-bold mb-3">Event Chauffeur</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">Hourly bookings
+                            for weddings, galas, and special events. Keep your driver on standby as long as you need.
+                        </p>
+                        <a href="services.html"
+                            style="color: var(--primary-accent); font-weight: 700; text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Learn
+                            More <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Safety & Commitment -->
+    <section style="background: var(--secondary-bg); padding: 100px 0;">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=900&auto=format&fit=crop"
+                            alt="Safety" class="img-fluid rounded-4" style="box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                        <div class="position-absolute"
+                            style="bottom: -20px; right: -20px; background: var(--primary-accent); color: #111; padding: 24px; border-radius: 16px; font-weight: 800; font-size: 24px; line-height: 1.2;">
+                            100%<br><span
+                                style="font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Insured
+                                & Verified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <span class="eyebrow">Our Commitment</span>
+                    <h2 class="fw-bold mb-4" style="letter-spacing: -0.5px; font-size: 40px;">Safety Is Not An
+                        Option.<br>It's The Foundation.</h2>
+                    <p class="mb-4" style="font-size: 16px; color: var(--text-secondary); line-height: 1.8;">We've built
+                        our entire infrastructure around rider safety. From how we select our drivers to how we maintain
+                        our vehicles, nothing is left to chance.</p>
+
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="ph ph-check-circle" style="color: var(--primary-accent); font-size: 24px;"></i>
+                            <span class="fw-semibold">Rigorous criminal background checks</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="ph ph-check-circle" style="color: var(--primary-accent); font-size: 24px;"></i>
+                            <span class="fw-semibold">Monthly vehicle safety inspections</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="ph ph-check-circle" style="color: var(--primary-accent); font-size: 24px;"></i>
+                            <span class="fw-semibold">In-app emergency assistance button</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3">
+                            <i class="ph ph-check-circle" style="color: var(--primary-accent); font-size: 24px;"></i>
+                            <span class="fw-semibold">Share trip details with family via SMS</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Metrics (Scale) -->
+    <section
+        style="background: var(--primary-bg); padding: 100px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="stat-circle">
+                        <div
+                            style="font-size: 36px; font-weight: 800; color: var(--text-primary); position: relative; z-index: 1;">
+                            32<span style="color: var(--primary-accent);">+</span></div>
+                        <div
+                            style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); position: relative; z-index: 1;">
+                            Cities</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-circle">
+                        <div
+                            style="font-size: 36px; font-weight: 800; color: var(--text-primary); position: relative; z-index: 1;">
+                            1.2<span style="color: var(--primary-accent);">M</span></div>
+                        <div
+                            style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); position: relative; z-index: 1;">
+                            Rides</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-circle">
+                        <div
+                            style="font-size: 36px; font-weight: 800; color: var(--text-primary); position: relative; z-index: 1;">
+                            4.9<span style="color: var(--primary-accent);">★</span></div>
+                        <div
+                            style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); position: relative; z-index: 1;">
+                            Rating</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-circle">
+                        <div
+                            style="font-size: 36px; font-weight: 800; color: var(--text-primary); position: relative; z-index: 1;">
+                            24<span style="color: var(--primary-accent);">/</span>7</div>
+                        <div
+                            style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); position: relative; z-index: 1;">
+                            Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Trusted Partners -->
+    <section style="background: var(--card-bg); padding: 80px 0;">
+        <div class="container text-center">
+            <span class="eyebrow" style="margin-bottom: 30px;">Trusted By Corporate Partners</span>
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-5" style="opacity: 0.6;">
+                <i class="ph ph-amazon-logo" style="font-size: 48px; color: var(--text-primary);"></i>
+                <i class="ph ph-google-logo" style="font-size: 48px; color: var(--text-primary);"></i>
+                <i class="ph ph-microsoft-logo" style="font-size: 48px; color: var(--text-primary);"></i>
+                <i class="ph ph-spotify-logo" style="font-size: 48px; color: var(--text-primary);"></i>
+                <i class="ph ph-stripe-logo" style="font-size: 48px; color: var(--text-primary);"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Promo CTA -->
+    <section style="background: var(--secondary-bg); padding: 100px 0;">
+        <div class="container">
+            <div class="promo-banner text-center">
+                <i class="ph ph-ticket"
+                    style="font-size: 64px; color: var(--primary-accent); margin-bottom: 24px; display: inline-block;"></i>
+                <h2 class="text-white fw-bold mb-3" style="font-size: clamp(32px, 4vw, 48px); letter-spacing: -1px;">
+                    Upgrade Your Commute Today.</h2>
+                <p class="text-light mx-auto mb-5" style="max-width: 500px; font-size: 18px; opacity: 0.9;">Book your
+                    first premium ride with us and enjoy 15% off. Use code <span
+                        style="color: var(--primary-accent); font-weight: 800; letter-spacing: 1px;">ARRIVAL15</span> at
+                    checkout.</p>
+                <a href="booking.html" class="btn btn-primary btn-lg py-3 px-5 fw-bold"
+                    style="border-radius: 12px; font-size: 16px;">Claim Offer & Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h2 class="navbar-brand mb-4"><i class="ph ph-taxi"></i> LOCAL TAXI</h2>
+                    <p class="mb-4">Premium mobility for people who value time, comfort and reliability.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="me-3"><i class="ph ph-facebook-logo" style="font-size: 24px;"></i></a>
+                        <a href="#" class="me-3"><i class="ph ph-x-logo" style="font-size: 24px;"></i></a>
+                        <a href="#" class="me-3"><i class="ph ph-instagram-logo" style="font-size: 24px;"></i></a>
+                        <a href="#"><i class="ph ph-linkedin-logo" style="font-size: 24px;"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">City Rides</a></li>
+                        <li><a href="#">Airport Transfers</a></li>
+                        <li><a href="#">Corporate Travel</a></li>
+                        <li><a href="#">Outstation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Passengers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Book A Ride</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Ride History</a></li>
+                        <li><a href="#">Saved Locations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-top" style="border-color: var(--border-color) !important;">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <p class="mb-0">© 2026 Local Taxi. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <button id="scrollTop" class="btn btn-primary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 99; border-radius: 50%; width: 40px; height: 40px; padding: 0; align-items: center; justify-content: center;"><i
+            class="ph ph-arrow-up"></i></button>
+</body>
+
+</html>
