@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -180,10 +180,14 @@
 <body>
 
     <!-- Global Navigation -->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-xl">
         <div class="container">
             <a href="index.html" class="navbar-brand"><i class="ph ph-taxi"></i> LOCAL TAXI</a>
-            <div class="nav-links d-none d-lg-flex">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" style="border:none; outline:none; box-shadow:none;">
+                <i class="ph ph-list" style="font-size: 28px; color: var(--text-primary);"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+            <div class="nav-links d-flex flex-column flex-xl-row align-items-center mt-4 mt-xl-0 gap-3 gap-xl-4 text-center">
                 <a href="index.html">Home</a>
                 <a href="home-2.html">Home 2</a>
                 <a href="about.html">About</a>
@@ -193,11 +197,12 @@
                 <a href="contact.html">Contact</a>
                 <a href="dashboard.html">Dashboard</a>
             </div>
-            <div class="nav-links d-none d-xl-flex align-items-center">
+            <div class="nav-links d-flex flex-column flex-xl-row align-items-center mt-4 mt-xl-0 ms-xl-4 gap-3 justify-content-center">
                 <a href="#" class="btn btn-secondary btn-sm js-theme-toggle" style="padding: 8px 12px;"><i class="ph ph-moon"></i></a>
                 <a href="#" class="btn btn-secondary btn-sm js-rtl-toggle" style="padding: 8px 12px;">RTL</a>
                 <a href="register.html" class="btn btn-secondary btn-sm" style="padding: 8px 16px;">Sign Up</a>
                 <a href="booking.html" class="btn btn-primary">Book A Ride</a>
+            </div>
             </div>
         </div>
     </nav>
@@ -208,7 +213,7 @@
         <div class="container position-relative text-center" style="z-index: 2;">
             <span class="eyebrow">Transparent Pricing</span>
             <h1 class="text-white fw-bold mb-3 mx-auto" style="font-size: clamp(36px,5vw,60px); letter-spacing: -1px; max-width: 700px;">Simple, Fair & Fixed Fares</h1>
-            <p class="text-light mb-0 mx-auto" style="max-width: 540px; opacity: 0.85; font-size: 17px;">No surge pricing. No hidden charges. Pay exactly what you see — every single ride.</p>
+            <p class="text-light mb-0 mx-auto" style="max-width: 540px; opacity: 0.85; font-size: 17px;">No surge pricing. No hidden charges. Pay exactly what you see â€” every single ride.</p>
         </div>
     </section>
 
@@ -218,7 +223,7 @@
             <div class="text-center mb-5">
                 <span class="eyebrow">Choose Your Plan</span>
                 <h2 class="fw-bold" style="letter-spacing: -0.5px;">Ride Plans for Every Need</h2>
-                <p class="mx-auto" style="max-width: 520px;">From quick city hops to luxury outstation journeys — we have a plan that fits your lifestyle.</p>
+                <p class="mx-auto" style="max-width: 520px;">From quick city hops to luxury outstation journeys â€” we have a plan that fits your lifestyle.</p>
             </div>
             <div class="row g-4 justify-content-center">
 
@@ -234,7 +239,7 @@
                         </div>
                         <div class="mb-4">
                             <div class="price-amount"><span>$</span>2<span style="font-size:16px;margin-top:16px;">.50</span></div>
-                            <div style="font-size:13px;color:var(--text-secondary);margin-top:6px;">per km &nbsp;·&nbsp; Base fare $5.00</div>
+                            <div style="font-size:13px;color:var(--text-secondary);margin-top:6px;">per km &nbsp;Â·&nbsp; Base fare $5.00</div>
                         </div>
                         <ul class="feature-list mb-4">
                             <li class="included"><i class="ph ph-check-circle" style="color:#4ade80;"></i> Up to 4 passengers</li>
@@ -251,7 +256,7 @@
                 <!-- Premium (Featured) -->
                 <div class="col-md-6 col-lg-4">
                     <div class="pricing-card featured">
-                        <div class="badge-popular">⭐ Most Popular</div>
+                        <div class="badge-popular">â­ Most Popular</div>
                         <div class="d-flex align-items-center gap-3 mb-4">
                             <div style="width:52px;height:52px;border-radius:14px;background:rgba(231,183,90,0.18);display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--primary-accent);"><i class="ph ph-taxi"></i></div>
                             <div>
@@ -261,7 +266,7 @@
                         </div>
                         <div class="mb-4">
                             <div class="price-amount"><span>$</span>4<span style="font-size:16px;margin-top:16px;">.50</span></div>
-                            <div style="font-size:13px;color:var(--text-secondary);margin-top:6px;">per km &nbsp;·&nbsp; Base fare $8.00</div>
+                            <div style="font-size:13px;color:var(--text-secondary);margin-top:6px;">per km &nbsp;Â·&nbsp; Base fare $8.00</div>
                         </div>
                         <ul class="feature-list mb-4">
                             <li class="included"><i class="ph ph-check-circle" style="color:#4ade80;"></i> Up to 4 passengers</li>
@@ -287,7 +292,7 @@
                         </div>
                         <div class="mb-4">
                             <div class="price-amount"><span>$</span>6<span style="font-size:16px;margin-top:16px;">.00</span></div>
-                            <div style="font-size:13px;color:var(--text-secondary);margin-top:6px;">per km &nbsp;·&nbsp; Base fare $10.00</div>
+                            <div style="font-size:13px;color:var(--text-secondary);margin-top:6px;">per km &nbsp;Â·&nbsp; Base fare $10.00</div>
                         </div>
                         <ul class="feature-list mb-4">
                             <li class="included"><i class="ph ph-check-circle" style="color:#4ade80;"></i> Up to 6 passengers</li>
@@ -312,7 +317,7 @@
                 <div class="col-lg-5">
                     <span class="eyebrow">Fare Breakdown</span>
                     <h2 class="fw-bold mb-4" style="letter-spacing: -0.5px;">Understand Every Charge</h2>
-                    <p class="mb-4">Our pricing is 100% transparent. Here's exactly what makes up your fare — no surprises, ever.</p>
+                    <p class="mb-4">Our pricing is 100% transparent. Here's exactly what makes up your fare â€” no surprises, ever.</p>
                     <div class="d-flex flex-column gap-3">
                         <div class="d-flex align-items-start gap-3">
                             <div style="width:40px;height:40px;border-radius:10px;background:rgba(231,183,90,0.12);display:flex;align-items:center;justify-content:center;color:var(--primary-accent);font-size:20px;flex-shrink:0;"><i class="ph ph-currency-dollar"></i></div>
@@ -425,7 +430,7 @@
                             <span>Are there any hidden charges I should know about?</span>
                             <div class="faq-icon"><i class="ph ph-plus"></i></div>
                         </div>
-                        <div class="faq-answer">Absolutely not. The only additional charges are: Airport surcharge, Night surcharge (10PM–6AM), and a Cancellation fee if you cancel after the driver is dispatched. All charges are shown upfront before you confirm your booking.</div>
+                        <div class="faq-answer">Absolutely not. The only additional charges are: Airport surcharge, Night surcharge (10PMâ€“6AM), and a Cancellation fee if you cancel after the driver is dispatched. All charges are shown upfront before you confirm your booking.</div>
                     </div>
 
                     <div class="faq-item" onclick="toggleFaq(this)">
@@ -478,7 +483,7 @@
                         <div style="font-size:13px;color:var(--text-secondary);">Daily Rides</div>
                     </div>
                     <div class="text-center">
-                        <div style="font-size:32px;font-weight:800;color:var(--primary-accent);font-family:var(--font-main);">4.9★</div>
+                        <div style="font-size:32px;font-weight:800;color:var(--primary-accent);font-family:var(--font-main);">4.9â˜…</div>
                         <div style="font-size:13px;color:var(--text-secondary);">Avg Rating</div>
                     </div>
                     <div class="text-center">
@@ -538,7 +543,7 @@
             </div>
             <div class="mt-5 pt-4 border-top" style="border-color: var(--border-color) !important;">
                 <div class="d-flex flex-wrap justify-content-between">
-                    <p class="mb-0">© 2026 Local Taxi. All rights reserved.</p>
+                    <p class="mb-0">Â© 2026 Local Taxi. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -556,3 +561,4 @@
     <button id="scrollTop" class="btn btn-primary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 99; border-radius: 50%; width: 40px; height: 40px; padding: 0; align-items: center; justify-content: center;"><i class="ph ph-arrow-up"></i></button>
 </body>
 </html>
+

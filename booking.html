@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -103,11 +103,15 @@
 <body>
 
     <!-- Global Navigation -->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-xl">
         <div class="container">
             <a href="index.html" class="navbar-brand"><i class="ph ph-taxi"></i> LOCAL TAXI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" style="border:none; outline:none; box-shadow:none;">
+                <i class="ph ph-list" style="font-size: 28px; color: var(--text-primary);"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
 
-            <div class="nav-links d-none d-lg-flex">
+            <div class="nav-links d-flex flex-column flex-xl-row align-items-center mt-4 mt-xl-0 gap-3 gap-xl-4 text-center">
                 <a href="index.html">Home</a>
                 <a href="home-2.html">Home 2</a>
                 <a href="about.html">About</a>
@@ -118,12 +122,13 @@
                 <a href="dashboard.html">Dashboard</a>
             </div>
 
-            <div class="nav-links d-none d-xl-flex align-items-center">
+            <div class="nav-links d-flex flex-column flex-xl-row align-items-center mt-4 mt-xl-0 ms-xl-4 gap-3 justify-content-center">
                 <a href="#" class="btn btn-secondary btn-sm js-theme-toggle" style="padding: 8px 12px;"><i
                         class="ph ph-moon"></i></a>
                 <a href="#" class="btn btn-secondary btn-sm js-rtl-toggle" style="padding: 8px 12px;">RTL</a>
                 <a href="register.html" class="btn btn-secondary btn-sm" style="padding: 8px 16px;">Sign Up</a>
                 <a href="booking.html" class="btn btn-primary">Book A Ride</a>
+            </div>
             </div>
         </div>
     </nav>
@@ -419,7 +424,7 @@
                     style="color: var(--primary-accent); font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 12px;">Simple
                     Process</span>
                 <h2 class="fw-bold" style="letter-spacing: -0.5px;">How It Works</h2>
-                <p class="mx-auto" style="max-width: 500px;">From booking to arrival — we make every step seamless,
+                <p class="mx-auto" style="max-width: 500px;">From booking to arrival â€” we make every step seamless,
                     transparent and stress-free.</p>
             </div>
             <div class="row g-4">
@@ -619,7 +624,7 @@
             </div>
             <div class="mt-5 pt-4 border-top" style="border-color: var(--border-color) !important;">
                 <div class="d-flex flex-wrap justify-content-between">
-                    <p class="mb-0">© 2026 Local Taxi. All rights reserved.</p>
+                    <p class="mb-0">Â© 2026 Local Taxi. All rights reserved.</p>
                 </div>
             </div>
         </div>

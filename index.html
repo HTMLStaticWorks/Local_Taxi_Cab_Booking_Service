@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -103,27 +103,35 @@
 <body>
 
     <!-- Global Navigation -->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-xl">
         <div class="container">
             <a href="index.html" class="navbar-brand"><i class="ph ph-taxi"></i> LOCAL TAXI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                style="border:none; outline:none; box-shadow:none;">
+                <i class="ph ph-list" style="font-size: 28px; color: var(--text-primary);"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
 
-            <div class="nav-links d-none d-lg-flex">
-                <a href="index.html" class="active">Home</a>
-                <a href="home-2.html">Home 2</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="vehicles.html">Vehicles</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="contact.html">Contact</a>
-                <a href="dashboard.html">Dashboard</a>
-            </div>
+                <div
+                    class="nav-links d-flex flex-column flex-xl-row align-items-center mt-4 mt-xl-0 gap-3 gap-xl-4 text-center">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="home-2.html">Home 2</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="vehicles.html">Vehicles</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
 
-            <div class="nav-links d-none d-xl-flex align-items-center">
-                <a href="#" class="btn btn-secondary btn-sm js-theme-toggle" style="padding: 8px 12px;"><i
-                        class="ph ph-moon"></i></a>
-                <a href="#" class="btn btn-secondary btn-sm js-rtl-toggle" style="padding: 8px 12px;">RTL</a>
-                <a href="register.html" class="btn btn-secondary btn-sm" style="padding: 8px 16px;">Sign Up</a>
-                <a href="booking.html" class="btn btn-primary">Book A Ride</a>
+                <div
+                    class="nav-links d-flex flex-column flex-xl-row align-items-center mt-4 mt-xl-0 ms-xl-4 gap-3 justify-content-center">
+                    <a href="#" class="btn btn-secondary btn-sm js-theme-toggle" style="padding: 8px 12px;"><i
+                            class="ph ph-moon"></i></a>
+                    <a href="#" class="btn btn-secondary btn-sm js-rtl-toggle" style="padding: 8px 12px;">RTL</a>
+                    <a href="register.html" class="btn btn-secondary btn-sm" style="padding: 8px 16px;">Sign Up</a>
+                    <a href="booking.html" class="btn btn-primary">Book A Ride</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -185,7 +193,8 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
                     <div class="step-card">
-                        <div class="step-icon-wrap"><i class="ph ph-map-trifold"></i></div>
+                        <img src="assets/images/book.jpg" alt="Book" class="img-fluid w-100 rounded-3 mb-4"
+                            style="object-fit: cover; height: 160px;">
                         <h5 class="fw-bold mb-2">1. Book</h5>
                         <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Enter your pickup and
                             drop-off locations in our app or website.</p>
@@ -193,7 +202,8 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="step-card">
-                        <div class="step-icon-wrap"><i class="ph ph-car-profile"></i></div>
+                        <img src="assets/images/choose.jpg" alt="Choose" class="img-fluid w-100 rounded-3 mb-4"
+                            style="object-fit: cover; height: 160px;">
                         <h5 class="fw-bold mb-2">2. Choose</h5>
                         <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Select your preferred
                             vehicle class from Economy to Premium SUV.</p>
@@ -201,7 +211,8 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="step-card">
-                        <div class="step-icon-wrap"><i class="ph ph-navigation-arrow"></i></div>
+                        <img src="assets/images/track.jpg" alt="Track" class="img-fluid w-100 rounded-3 mb-4"
+                            style="object-fit: cover; height: 160px;">
                         <h5 class="fw-bold mb-2">3. Track</h5>
                         <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Watch your driver arrive in
                             real-time on the live map.</p>
@@ -209,7 +220,8 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="step-card">
-                        <div class="step-icon-wrap"><i class="ph ph-smiley"></i></div>
+                        <img src="assets/images/ride.jpg" alt="Ride" class="img-fluid w-100 rounded-3 mb-4"
+                            style="object-fit: cover; height: 160px;">
                         <h5 class="fw-bold mb-2">4. Ride</h5>
                         <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Sit back, relax, and enjoy
                             your premium journey.</p>
@@ -222,7 +234,7 @@
     <!-- Section 3: Featured Fleet -->
     <section style="background: var(--secondary-bg); padding: 100px 0;">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3">
+            <div class="d-flex flex-column align-items-center text-center mb-5 gap-3">
                 <div>
                     <span class="eyebrow">Our Fleet</span>
                     <h2 class="fw-bold mb-0" style="letter-spacing: -0.5px;">Vehicles for Every Need</h2>
@@ -237,18 +249,19 @@
                         <div class="overflow-hidden">
                             <img src="assets/images/economy.png" alt="Economy" class="fleet-img">
                         </div>
-                        <div class="p-4">
+                        <div class="p-4 text-center">
                             <h5 class="fw-bold mb-1">Economy Class</h5>
                             <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Comfortable
                                 everyday sedans.</p>
-                            <div class="d-flex gap-3 mb-4" style="font-size: 13px; color: var(--text-secondary);">
+                            <div class="d-flex justify-content-center gap-3 mb-4"
+                                style="font-size: 13px; color: var(--text-secondary);">
                                 <span><i class="ph ph-user me-1 text-primary-accent"
                                         style="color: var(--primary-accent);"></i> 4 Pax</span>
                                 <span><i class="ph ph-briefcase me-1 text-primary-accent"
                                         style="color: var(--primary-accent);"></i> 2 Bags</span>
                             </div>
                             <a href="booking.html" class="btn btn-secondary w-100 fw-bold"
-                                style="border-radius: 8px;">From $25</a>
+                                style="border-radius: 8px;">From </a>
                         </div>
                     </div>
                 </div>
@@ -261,18 +274,19 @@
                             <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop"
                                 alt="Premium" class="fleet-img">
                         </div>
-                        <div class="p-4">
+                        <div class="p-4 text-center">
                             <h5 class="fw-bold mb-1">Premium Class</h5>
                             <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Luxury sedans
                                 for VIP travel.</p>
-                            <div class="d-flex gap-3 mb-4" style="font-size: 13px; color: var(--text-secondary);">
+                            <div class="d-flex justify-content-center gap-3 mb-4"
+                                style="font-size: 13px; color: var(--text-secondary);">
                                 <span><i class="ph ph-user me-1 text-primary-accent"
                                         style="color: var(--primary-accent);"></i> 4 Pax</span>
                                 <span><i class="ph ph-briefcase me-1 text-primary-accent"
                                         style="color: var(--primary-accent);"></i> 3 Bags</span>
                             </div>
                             <a href="booking.html" class="btn btn-primary w-100 fw-bold"
-                                style="border-radius: 8px;">From $45</a>
+                                style="border-radius: 8px;">From </a>
                         </div>
                     </div>
                 </div>
@@ -282,18 +296,19 @@
                             <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop"
                                 alt="SUV" class="fleet-img">
                         </div>
-                        <div class="p-4">
+                        <div class="p-4 text-center">
                             <h5 class="fw-bold mb-1">SUV Class</h5>
                             <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Spacious
                                 rides for groups.</p>
-                            <div class="d-flex gap-3 mb-4" style="font-size: 13px; color: var(--text-secondary);">
+                            <div class="d-flex justify-content-center gap-3 mb-4"
+                                style="font-size: 13px; color: var(--text-secondary);">
                                 <span><i class="ph ph-user me-1 text-primary-accent"
                                         style="color: var(--primary-accent);"></i> 6 Pax</span>
                                 <span><i class="ph ph-briefcase me-1 text-primary-accent"
                                         style="color: var(--primary-accent);"></i> 5 Bags</span>
                             </div>
                             <a href="booking.html" class="btn btn-secondary w-100 fw-bold"
-                                style="border-radius: 8px;">From $60</a>
+                                style="border-radius: 8px;">From </a>
                         </div>
                     </div>
                 </div>
@@ -533,7 +548,7 @@
 
             <div class="mt-5 pt-4 border-top" style="border-color: var(--border-color) !important;">
                 <div class="d-flex flex-wrap justify-content-between">
-                    <p class="mb-0">© 2026 Local Taxi. All rights reserved.</p>
+                    <p class="mb-0">Ã‚Â© 2026 Local Taxi. All rights reserved.</p>
 
                 </div>
             </div>
