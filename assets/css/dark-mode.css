@@ -1,0 +1,58 @@
+/* dark-mode.css */
+body.dark-mode {
+  --primary-bg: #0B0E12;
+  --secondary-bg: #12171D;
+  --card-bg: #181F27;
+  --text-primary: #F5F7FA;
+  --text-secondary: #AAB4C0;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(24, 31, 39, 0.7);
+}
+
+body.dark-mode .navbar.scrolled {
+  background: rgba(11, 14, 18, 0.85);
+}
+
+body.dark-mode .card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Fix: placeholder text visibility in dark mode */
+body.dark-mode .form-control::placeholder {
+  color: #5A6A7A !important;
+  opacity: 1;
+}
+
+/* Fix: input text and background in dark mode */
+body.dark-mode .form-control {
+  background: rgba(255,255,255,0.04) !important;
+  color: #F5F7FA !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+
+/* Fix: Date/Time picker icons in dark mode */
+body.dark-mode input[type="date"],
+body.dark-mode input[type="time"] {
+  color-scheme: dark;
+}
+
+/* Fix: Accordion (Got Questions) chevron in dark mode */
+body.dark-mode .accordion-button::after {
+  filter: invert(1);
+}
+
+
+/* Fix: form-select in dark mode */
+body.dark-mode .form-select {
+    background-color: rgba(255,255,255,0.04) !important;
+    color: #F5F7FA !important;
+    border-color: rgba(255,255,255,0.1) !important;
+}
+body.dark-mode .form-select option {
+    background-color: #0b0e12;
+    color: #F5F7FA;
+}

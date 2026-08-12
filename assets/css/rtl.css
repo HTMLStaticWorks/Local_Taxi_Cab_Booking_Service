@@ -1,0 +1,25 @@
+/* rtl.css */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .hero-image {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .ms-auto {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+html[dir="rtl"] .me-3 {
+  margin-right: 0 !important;
+  margin-left: 1rem !important;
+}
+
+html[dir="rtl"] .nav-links {
+  margin-right: auto;
+  margin-left: 0;
+}
